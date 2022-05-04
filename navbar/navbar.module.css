@@ -1,0 +1,184 @@
+.nav {
+  background-color: rgb(238, 238, 234);
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navbar {
+  height: 56px;
+  width: 85%;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-content: space-around;
+}
+
+.navbarLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbarLogo > a > img {
+  width: 135px;
+}
+.hoverList {
+  /* width: 350px; */
+  font-family: PT Sans;
+  font-size: 17px;
+  letter-spacing: 1px;
+}
+.hoverList > ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  /* margin-left: 50px; */
+  justify-content: left;
+}
+.hoverList > ul > li:hover {
+  color: #98cb4c;
+  cursor: pointer;
+}
+.icons {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  /* margin-right: 50px; */
+  gap: 20px;
+}
+.iconsLogo > img {
+  width: 20px;
+  height: 20px;
+}
+/* .icons > div > p {
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+} */
+.icons > div {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+
+.map > img {
+  height: 30px;
+  width: 30px;
+}
+/* .CheckPins {
+  
+} */
+.inputDiv {
+  position: fixed;
+  top: 0px;
+  left: 25%;
+  border: 2px solid #e2e1e1;
+  padding: 40px;
+  width: 45%;
+  background: white;
+  z-index: 9998;
+  margin-top: 100px;
+}
+.inputDiv > img {
+  height: 250px;
+}
+.inputDiv > input {
+  width: 95%;
+  height: 40px;
+  font-size: 14px;
+  line-height: 18px;
+  border: 1px solid #e1e1e1;
+  padding: 0 10px;
+  color: #4c4c4c;
+}
+.inputDiv > input:focus {
+  outline: none;
+}
+.inputDiv > button {
+  margin-top: 16px;
+  border: 2px solid #98cb4c;
+  background: transparent;
+  border-radius: 5px;
+  color: #98cb4c;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.3px;
+  padding: 10px 20px;
+  transition: 0.25s ease-in-out;
+  cursor: pointer;
+}
+.inputDiv > button:hover {
+  color: white;
+  background-color: #4c4c4c;
+  border: 2px solid #4c4c4c;
+}
+.pinDisc {
+  margin-top: 10px;
+  font-size: 1.5vw;
+}
+.closingX {
+  /* text-align: right;
+  font-size: 50px;
+  cursor: pointer;
+  width: 50px;
+  border: 1px solid red; */
+
+  position: fixed;
+  color: black;
+  font-size: 4vw;
+  top: 20px;
+  right: 30px;
+  z-index: 99999;
+  cursor: pointer;
+}
+.slidingSearchbar {
+  position: absolute;
+  top: 50px;
+  right: 30px;
+  height: 45px;
+  width: 315px;
+  z-index: 1;
+  padding: 20px;
+  background-color: #f7f7f7;
+  transition-delay: 2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* .slidingSearchbar:onclick {
+  transition: 0s;
+} */
+.slidingSearchbar > input {
+  height: 38px;
+  border: 1px solid #e1e1e1;
+  padding: 0 0 0 30px;
+  font-size: 14px;
+  color: #4c4c4c;
+}
+.slidingSearchbar > input:focus {
+  outline: none;
+}
+.slidingSearchbar > button {
+  height: 38px;
+  width: 150px;
+  letter-spacing: 1px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  background-color: rgb(152, 203, 76);
+  transition: 0.25s ease-in-out;
+}
+.slidingSearchbar > button:hover {
+  background-color: #bbe977;
+}
+.iconsLogo > img {
+  transition: opacity ease-in-out;
+}
