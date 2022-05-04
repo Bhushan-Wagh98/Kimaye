@@ -5,12 +5,21 @@ import profile from "../profile.svg";
 import bag from "../bag.svg";
 import Pins from "./LocationPInCode";
 
+// import * as FaIcons from "react-icons/fa";
+// import * as AiIcons from "react-icons/ai";
+// import * as IoIcons from "react-icons/io";
+// import * as RIIcons from "react-icons/ri";
+
 export const Navbar = () => {
   const [pin, setPin] = useState(false);
   const [pinCity, setCity] = useState("Mumbai");
   const [query, setQuery] = useState("");
 
   const [searchDiv, setSearch] = useState(false);
+
+  const [profileBar, setProfile] = useState(false);
+
+  const [cart, setCart] = useState(false);
 
   const pinInputChange = (e) => {
     let value = e.target.value;
@@ -91,11 +100,11 @@ export const Navbar = () => {
               />
             </div>
 
-            <div className={styles.iconsLogo}>
+            <div className={styles.iconsLogo} onClick={() => setProfile(true)}>
               <img src={profile} alt="profile" />
             </div>
 
-            <div className={styles.iconsLogo}>
+            <div className={styles.iconsLogo} onClick={() => setCart(true)}>
               <img src={bag} alt="cart" />
             </div>
           </div>
@@ -134,12 +143,48 @@ export const Navbar = () => {
         </div>
       ) : null}
 
+      {/* search div */}
       {searchDiv ? (
         <div className={styles.slidingSearchbar}>
           <input type="text" placeholder="Search for product" />
           <button>SEARCH</button>
         </div>
       ) : null}
+
+      {/* profile sidebar */}
+      {profileBar ? (
+        <div className={styles.sidebar}>
+          <div className={styles.sidebarHead}>
+            <div>
+              <h1>SIGN IN</h1>
+              <p onClick={() => setProfile(false)}>CLOSE X</p>
+            </div>
+          </div>
+
+          <div className={styles.sidebarForm}>
+            <div>
+              <label for="usernameInside">
+                Email Address <span className={styles.required}>*</span>{" "}
+              </label>
+              <br />
+              <input type="text" id="usernameInside" />
+            </div>
+
+            <div>
+              <label for="passwordInside">
+                Password <span className={styles.required}>*</span>{" "}
+              </label>
+              <br />
+              <input type="text" id="passwordInside" />
+            </div>
+          </div>
+        </div>
+      ) : null}
+
+      {/* <AiIcons.AiFillApple /> */}
+
+      {/* cart sidebar */}
+      {cart ? <div>cart</div> : null}
     </>
   );
 };
