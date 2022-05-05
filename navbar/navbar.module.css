@@ -134,9 +134,10 @@
   border: 1px solid red; */
 
   position: fixed;
-  color: black;
+  color: white;
   font-size: 4vw;
-  top: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  top: 0;
   right: 30px;
   z-index: 99999;
   cursor: pointer;
@@ -144,7 +145,7 @@
 .slidingSearchbar {
   position: absolute;
   top: 50px;
-  right: 30px;
+  right: 90px;
   height: 45px;
   width: 315px;
   z-index: 1;
@@ -154,21 +155,44 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.4s;
+}
+.hideSearchDiv {
+  position: absolute;
+  top: 50px;
+  right: 90px;
+  height: 45px;
+  width: 315px;
+  z-index: -1;
+  padding: 20px;
+  background-color: #f7f7f7;
+  transition-delay: 2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(-10%);
+  transition: all 0.4s;
 }
 /* .slidingSearchbar:onclick {
   transition: 0s;
 } */
-.slidingSearchbar > input {
+.slidingSearchbar > input,
+.hideSearchDiv > input {
   height: 38px;
   border: 1px solid #e1e1e1;
   padding: 0 0 0 30px;
   font-size: 14px;
   color: #4c4c4c;
 }
-.slidingSearchbar > input:focus {
+.slidingSearchbar > input:focus,
+.hideSearchDiv > input:focus {
   outline: none;
 }
-.slidingSearchbar > button {
+.slidingSearchbar > button,
+.hideSearchDiv > button {
   height: 38px;
   width: 150px;
   letter-spacing: 1px;
@@ -178,7 +202,8 @@
   background-color: rgb(152, 203, 76);
   transition: 0.25s ease-in-out;
 }
-.slidingSearchbar > button:hover {
+.slidingSearchbar > button:hover,
+.hideSearchDiv > button:hover {
   background-color: #bbe977;
 }
 .iconsLogo > img {
@@ -195,7 +220,20 @@
   z-index: 50000;
   overflow: auto;
   overflow-y: scroll;
-  transition: transform 0.3s;
+  transform: translateX(0);
+  transition: all 0.4s;
+}
+.sidebarToggle {
+  background-color: white;
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vw;
+  width: 340px;
+  overflow: auto;
+  overflow-y: scroll;
+  transform: translateX(100%);
+  transition: all 0.4s;
 }
 .sidebarHead {
   width: 100%;
@@ -248,4 +286,116 @@
 }
 .sidebarForm > div > input:focus {
   outline: 1px solid rgb(77, 77, 77);
+}
+.backDrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9997;
+  width: 100%;
+  height: 100vw;
+  background-color: black;
+  opacity: 0.6;
+  transform: translateX(0);
+  transition: 0.1s ease-in-out;
+}
+.backDrophide {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -9997;
+  width: 100%;
+  height: 100vw;
+  transform: translateX(0);
+  transition: 0.1s ease-in-out;
+  opacity: 0;
+}
+.forgotPass {
+  transition: 0.25s ease-in-out;
+  line-height: 0px;
+  margin: 0;
+  cursor: pointer;
+}
+.forgotPass:hover {
+  color: #98cb4c;
+}
+.loginButton {
+  width: 85%;
+  font-family: PT Sans, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  border: 2px solid black;
+  background-color: transparent;
+  height: 45px;
+  transition: 0.25s ease-in-out;
+  margin-top: 0px;
+}
+.loginButton:hover {
+  border: 2px solid #3e3e3e;
+  color: white;
+  background-color: #3e3e3e;
+}
+
+.signInSocial > div {
+  height: 40px;
+  margin-bottom: 10px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-family: PT Sans, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+.signInSocial > div:hover {
+  opacity: 0.7;
+}
+.signInSocial > div > p {
+  margin-left: 20px;
+}
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@500&family=Poppins:wght@600&display=swap");
+.signInSocial > div > div {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  height: 100%;
+  width: 15px;
+  padding: 0 15px;
+  background-color: rgba(255, 255, 255, 0.151);
+}
+.createAc {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  margin-left: 25px;
+  color: #4c4c4c;
+}
+.createAc > img {
+  height: 60px;
+  opacity: 0.2;
+}
+.createAc > p {
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.createAcBt {
+  width: 55%;
+  font-family: PT Sans, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  border: 2px solid black;
+  background-color: transparent;
+  height: 45px;
+  transition: 0.25s ease-in-out;
+  margin-top: 0px;
+}
+.createAcBt:hover {
+  border: 2px solid #3e3e3e;
+  color: white;
+  background-color: #3e3e3e;
 }

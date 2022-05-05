@@ -94,9 +94,7 @@ export const Navbar = () => {
               <img
                 src={search}
                 alt="search"
-                onClick={() => {
-                  if (!pin) setSearch(!searchDiv);
-                }}
+                onClick={() => setSearch(!searchDiv)}
               />
             </div>
 
@@ -110,14 +108,19 @@ export const Navbar = () => {
           </div>
         </div>
       </nav>
-
+      {/* black screen */}
+      <div
+        className={
+          pin || profileBar || cart ? styles.backDrop : styles.backDrophide
+        }
+      ></div>
       {/* pincode check */}
       {pin ? (
         <div className={styles.CheckPins}>
           <div>
-            <h1 className={styles.closingX} onClick={() => setPin(false)}>
+            <p className={styles.closingX} onClick={() => setPin(false)}>
               X
-            </h1>
+            </p>
           </div>
 
           <div className={styles.inputDiv}>
@@ -142,49 +145,85 @@ export const Navbar = () => {
           </div>
         </div>
       ) : null}
-
       {/* search div */}
-      {searchDiv ? (
-        <div className={styles.slidingSearchbar}>
-          <input type="text" placeholder="Search for product" />
-          <button>SEARCH</button>
-        </div>
-      ) : null}
+      <div
+        className={
+          pin || profileBar || cart || !searchDiv
+            ? styles.hideSearchDiv
+            : styles.slidingSearchbar
+        }
+      >
+        <input type="text" placeholder="Search for product" />
+        <button>SEARCH</button>
+      </div>
 
       {/* profile sidebar */}
-      {profileBar ? (
-        <div className={styles.sidebar}>
-          <div className={styles.sidebarHead}>
-            <div>
-              <h1>SIGN IN</h1>
-              <p onClick={() => setProfile(false)}>CLOSE X</p>
-            </div>
-          </div>
 
-          <div className={styles.sidebarForm}>
-            <div>
-              <label for="usernameInside">
-                Email Address <span className={styles.required}>*</span>{" "}
-              </label>
-              <br />
-              <input type="text" id="usernameInside" />
-            </div>
-
-            <div>
-              <label for="passwordInside">
-                Password <span className={styles.required}>*</span>{" "}
-              </label>
-              <br />
-              <input type="text" id="passwordInside" />
-            </div>
+      <div className={profileBar ? styles.sidebar : styles.sidebarToggle}>
+        <div className={styles.sidebarHead}>
+          <div>
+            <h1>SIGN IN</h1>
+            <p onClick={() => setProfile(false)}>CLOSE X</p>
           </div>
         </div>
-      ) : null}
+
+        <div className={styles.sidebarForm}>
+          <div>
+            <label for="usernameInside">
+              Email Address <span className={styles.required}>*</span>{" "}
+            </label>
+            <br />
+            <input type="text" id="usernameInside" />
+          </div>
+
+          <div>
+            <label for="passwordInside">
+              Password <span className={styles.required}>*</span>{" "}
+            </label>
+            <br />
+            <input type="text" id="passwordInside" />
+          </div>
+
+          <div className={styles.forgotPass}>
+            <p>Forgot your password?</p>
+          </div>
+
+          <button className={styles.loginButton}>LOGIN</button>
+        </div>
+
+        <div className={styles.signInSocial}>
+          <div style={{ backgroundColor: "#2d5073" }}>
+            <p>Sign in with Facebook</p>
+            <div>f</div>
+          </div>
+          <div style={{ backgroundColor: "#dd4b39" }}>
+            <p>Sign in with Google</p>
+            <div>G</div>
+          </div>
+        </div>
+
+        <div className={styles.createAc}>
+          <img src={profile} alt="profile" />
+          <h4>No account yet?</h4>
+          <p>
+            Welcome to Kimaye! Help us with a few details to know you better as
+            you take the journey of enjoying our safe and tasty fruits.
+          </p>
+          <button className={styles.createAcBt}>Create An Account</button>
+        </div>
+      </div>
 
       {/* <AiIcons.AiFillApple /> */}
-
       {/* cart sidebar */}
-      {cart ? <div>cart</div> : null}
+
+      <div className={cart ? styles.sidebar : styles.sidebarToggle}>
+        <div className={styles.sidebarHead}>
+          <div>
+            <h1>SHOPPING CART</h1>
+            <p onClick={() => setCart(false)}>CLOSE X</p>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
