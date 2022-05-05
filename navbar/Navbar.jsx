@@ -21,6 +21,9 @@ export const Navbar = () => {
 
   const [cart, setCart] = useState(false);
 
+  const [shop, setShop] = useState(false);
+  const [learn, setLearn] = useState(false);
+
   const pinInputChange = (e) => {
     let value = e.target.value;
     setQuery(value);
@@ -61,11 +64,29 @@ export const Navbar = () => {
       <nav className={styles.nav}>
         <div className={styles.navbar}>
           <div className={styles.hoverList}>
-            <ul>
-              <li>SHOP</li>
+            <div
+              onMouseLeave={() => setShop(false)}
+              onMouseEnter={() => setShop(true)}
+            >
+              SHOP ▼
+            </div>
+            <div
+              onMouseLeave={() => setLearn(false)}
+              onMouseEnter={() => setLearn(true)}
+            >
+              LEARN ▼
+            </div>
+            <div>GROW</div>
+            {/* <ul>
+              <li
+                onMouseLeave={() => setShop(false)}
+                onMouseEnter={() => setShop(true)}
+              >
+                SHOP
+              </li>
               <li>LEARN</li>
               <li>GROW</li>
-            </ul>
+            </ul> */}
           </div>
           <div className={styles.navbarLogo}>
             <a href="/">
@@ -108,6 +129,32 @@ export const Navbar = () => {
           </div>
         </div>
       </nav>
+      {/* dropdown shop */}
+      <div
+        onMouseLeave={() => setShop(false)}
+        onMouseEnter={() => (shop ? setShop(true) : null)}
+        className={shop ? styles.shopDrop : styles.shopHide}
+      >
+        <p>ALL FRUITS</p>
+        <p>FRESH CUTS</p>
+        <p>FRUIT COMBOS</p>
+        <p>GIFTS BY KIMAYE</p>
+        <p>GRAPE FAMILY BY KIMAYE</p>
+        <p>RETURN AND REPLACEMENT</p>
+        <p style={{ opacity: "0.6" }}>FRUITS X SUBSCRIPTION</p>
+        <p>COMMUNITY BUYING</p>
+      </div>
+
+      <div
+        onMouseLeave={() => setLearn(false)}
+        onMouseEnter={() => (learn ? setLearn(true) : null)}
+        className={learn ? styles.learnDrop : styles.learnHide}
+      >
+        <p>OUR STORY</p>
+        <p>WHY KIMAYE</p>
+        <p>TRACEABILITY</p>
+        <p>BEYOND FRUITS</p>
+      </div>
       {/* black screen */}
       <div
         className={
@@ -185,6 +232,9 @@ export const Navbar = () => {
           </div>
 
           <div className={styles.forgotPass}>
+            {/* <ul>
+              <li>Forgot your password?</li>
+            </ul> */}
             <p>Forgot your password?</p>
           </div>
 

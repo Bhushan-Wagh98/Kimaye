@@ -31,21 +31,39 @@
   font-family: PT Sans;
   font-size: 17px;
   letter-spacing: 1px;
-}
-.hoverList > ul {
-  list-style: none;
+  height: 56px;
   display: flex;
   align-items: center;
+  justify-content: left;
+  gap: 45px;
+}
+/* .hoverList > ul {
+  list-style: none;
+  display: flex;
   gap: 50px;
   justify-content: left;
+  height: max-content;
 }
 .hoverList > ul > li {
   transition: 0.25s ease-in-out;
+  border: 1px solid red;
+  height: max-content;
 }
 .hoverList > ul > li:hover {
   color: #98cb4c;
   cursor: pointer;
+} */
+.hoverList > div {
+  transition: 0.25s ease-in-out;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
+.hoverList > div:hover {
+  color: #98cb4c;
+  cursor: pointer;
+}
+
 .icons {
   display: flex;
   align-items: center;
@@ -398,4 +416,92 @@
   border: 2px solid #3e3e3e;
   color: white;
   background-color: #3e3e3e;
+}
+
+.shopDrop {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  text-align: left;
+  padding: 0 20px;
+  width: 150px;
+  position: fixed;
+  top: 50px;
+  left: 70px;
+  z-index: 100;
+  background-color: white;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.4s;
+}
+.shopDrop > p {
+  cursor: pointer;
+  color: #4c4c4c;
+  transition: 0.25s ease-in-out;
+  margin: 25px 0;
+}
+.shopDrop > p:hover {
+  color: #98cb4c;
+  margin-left: 6px;
+}
+.shopHide > p {
+  margin: 25px 0;
+}
+.shopHide {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  text-align: left;
+  width: 150px;
+  padding: 0 20px;
+  position: fixed;
+  top: 50px;
+  left: 70px;
+  background-color: white;
+  opacity: 0;
+  transform: translateY(10%);
+  transition: all 0.4s;
+  z-index: -100;
+}
+.learnDrop {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  text-align: left;
+  padding: 0 20px;
+  width: 150px;
+  position: fixed;
+  top: 50px;
+  left: 150px;
+  z-index: 100;
+  background-color: white;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.4s;
+}
+.learnDrop > p {
+  cursor: pointer;
+  color: #4c4c4c;
+  margin: 25px 0;
+  transition: 0.25s ease-in-out;
+}
+.learnDrop > p:hover {
+  color: #98cb4c;
+  margin-left: 6px;
+}
+.learnHide > p {
+  margin: 25px 0;
+}
+
+.learnHide {
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: left;
+  width: 150px;
+  padding: 0 20px;
+  position: fixed;
+  top: 50px;
+  left: 150px;
+  background-color: white;
+  opacity: 0;
+  transform: translateY(10%);
+  transition: all 0.4s;
+  z-index: -100;
 }
