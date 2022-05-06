@@ -24,6 +24,23 @@ export const Navbar = () => {
   const [shop, setShop] = useState(false);
   const [learn, setLearn] = useState(false);
 
+  const [slidingHover, setSlidingHover] = useState(false);
+
+  const [showNavbar, setNavbar] = useState(false);
+
+  const scrollNavbarfn = () => {
+    if (window.scrollY >= 150) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+
+    if (window.scrollY >= 10) {
+      setSearch(false);
+    }
+  };
+  window.addEventListener("scroll", scrollNavbarfn);
+
   const pinInputChange = (e) => {
     let value = e.target.value;
     setQuery(value);
@@ -61,20 +78,41 @@ export const Navbar = () => {
   };
   return (
     <>
-      <nav className={styles.nav}>
+      {!showNavbar ? (
+        <div className={styles.greenHeader}>
+          Delivering in Mumbai and Delhi | Same day delivery!
+        </div>
+      ) : null}
+      <nav className={showNavbar ? styles.nav : styles.stickedNav}>
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/1828/1828551.png"
+          alt="menu"
+          className={
+            showNavbar ? styles.setSlidingHover : styles.setSlidingHover2
+          }
+          onClick={() => setSlidingHover(true)}
+        />
         <div className={styles.navbar}>
           <div className={styles.hoverList}>
             <div
               onMouseLeave={() => setShop(false)}
               onMouseEnter={() => setShop(true)}
             >
-              SHOP ▼
+              <p>SHOP</p>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/25/25623.png"
+                alt="arrow"
+              />
             </div>
             <div
               onMouseLeave={() => setLearn(false)}
               onMouseEnter={() => setLearn(true)}
             >
-              LEARN ▼
+              <p>LEARN</p>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/25/25623.png"
+                alt="arrow"
+              />
             </div>
             <div>GROW</div>
             {/* <ul>
@@ -113,6 +151,7 @@ export const Navbar = () => {
 
             <div className={styles.iconsLogo}>
               <img
+                className={styles.searchIcon}
                 src={search}
                 alt="search"
                 onClick={() => setSearch(!searchDiv)}
@@ -129,11 +168,22 @@ export const Navbar = () => {
           </div>
         </div>
       </nav>
+      <div
+        className={
+          slidingHover ? styles.shortscreenMenu : styles.shortscreenHide
+        }
+      ></div>
       {/* dropdown shop */}
       <div
         onMouseLeave={() => setShop(false)}
         onMouseEnter={() => (shop ? setShop(true) : null)}
-        className={shop ? styles.shopDrop : styles.shopHide}
+        className={
+          shop
+            ? showNavbar
+              ? styles.shopDrop
+              : styles.shopDrop2
+            : styles.shopHide
+        }
       >
         <p>ALL FRUITS</p>
         <p>FRESH CUTS</p>
@@ -148,7 +198,13 @@ export const Navbar = () => {
       <div
         onMouseLeave={() => setLearn(false)}
         onMouseEnter={() => (learn ? setLearn(true) : null)}
-        className={learn ? styles.learnDrop : styles.learnHide}
+        className={
+          learn
+            ? showNavbar
+              ? styles.learnDrop
+              : styles.learnDrop2
+            : styles.learnHide
+        }
       >
         <p>OUR STORY</p>
         <p>WHY KIMAYE</p>
@@ -158,8 +214,15 @@ export const Navbar = () => {
       {/* black screen */}
       <div
         className={
-          pin || profileBar || cart ? styles.backDrop : styles.backDrophide
+          slidingHover || pin || profileBar || cart
+            ? styles.backDrop
+            : styles.backDrophide
         }
+        onClick={() => {
+          setSlidingHover(false);
+          setProfile(false);
+          setCart(false);
+        }}
       ></div>
       {/* pincode check */}
       {pin ? (
@@ -195,9 +258,11 @@ export const Navbar = () => {
       {/* search div */}
       <div
         className={
-          pin || profileBar || cart || !searchDiv
+          slidingHover || pin || profileBar || cart || !searchDiv
             ? styles.hideSearchDiv
-            : styles.slidingSearchbar
+            : showNavbar
+            ? styles.slidingSearchbar
+            : styles.slidingSearchbar2
         }
       >
         <input type="text" placeholder="Search for product" />
