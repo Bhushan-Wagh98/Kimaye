@@ -714,6 +714,9 @@
     align-items: center;
     justify-content: right;
   }
+  .inputDiv {
+    left: 20%;
+  }
 }
 @media screen and (max-width: 991px) {
   .greenHeader {
@@ -790,6 +793,9 @@
     position: absolute;
     top: -200%;
   }
+  .inputDiv > img {
+    height: 130px;
+  }
 }
 
 @media screen and (max-width: 555px) {
@@ -810,6 +816,19 @@
     align-items: center;
     justify-content: center;
     width: 90%;
+  }
+  .inputDiv {
+    top: 0;
+    left: 10%;
+    width: 65%;
+    margin-bottom: 0px;
+  }
+
+  .pinDisc {
+    font-size: 19px;
+  }
+  .inputDiv > img {
+    height: 150px;
   }
 }
 @media screen and (max-width: 400px) {
@@ -836,6 +855,17 @@
   }
   .stickedNav > img {
     margin-left: 10px;
+  }
+  .inputDiv {
+    left: 7%;
+    height: auto;
+  }
+
+  .pinDisc {
+    font-size: 16px;
+  }
+  .inputDiv > img {
+    height: 130px;
   }
 }
 .shortScreenInput {
