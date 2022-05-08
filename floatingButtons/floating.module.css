@@ -1,0 +1,35 @@
+.left {
+  color: green;
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
+  z-index: 50001;
+  cursor: pointer;
+  /* background-color: #3e3e3e; */
+  background-color: hsla(60, 5%, 40%, 1);
+  padding: 10px 25px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 165px;
+  height: 40px;
+}
+.left > img {
+  height: 30px;
+  filter: invert(100%);
+}
+.right {
+  color: red;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  z-index: 50001;
+  cursor: pointer;
+}
+.right > img {
+  height: 55px;
+}

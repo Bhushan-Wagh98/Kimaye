@@ -6,7 +6,7 @@ import bag from "../bag.svg";
 import Pins from "./LocationPInCode";
 
 // import * as FaIcons from "react-icons/fa";
-// import * as AiIcons from "react-icons/ai";
+import * as AiIcons from "react-icons/ai";
 // import * as IoIcons from "react-icons/io";
 // import * as RIIcons from "react-icons/ri";
 
@@ -27,6 +27,9 @@ export const Navbar = () => {
   const [slidingHover, setSlidingHover] = useState(false);
 
   const [showNavbar, setNavbar] = useState(false);
+
+  const [slideShop, setSlidingShop] = useState(false);
+  const [slideLearn, setSlidingLearn] = useState(false);
 
   const scrollNavbarfn = () => {
     if (window.scrollY >= 150) {
@@ -172,7 +175,91 @@ export const Navbar = () => {
         className={
           slidingHover ? styles.shortscreenMenu : styles.shortscreenHide
         }
-      ></div>
+      >
+        <div className={styles.shortScreenInput}>
+          <input type="text" placeholder="Search for products" />
+          <button>
+            <AiIcons.AiOutlineSearch
+              style={{ height: "30px", width: "30px" }}
+            />
+            {/* <img src={search} alt="search" /> */}
+          </button>
+        </div>
+        <hr />
+        <div className={styles.slidingTable}>
+          <table>
+            <tr>
+              <td>
+                <p>HOME</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>SHOP</p>
+              </td>
+              <td style={slideShop ? { backgroundColor: "#98cb4c" } : null}>
+                <img
+                  onClick={() => setSlidingShop(!slideShop)}
+                  src="https://cdn-icons-png.flaticon.com/512/25/25623.png"
+                  alt="arrow"
+                />
+              </td>
+            </tr>
+            {slideShop ? (
+              <div style={{ textAlign: "left" }}>
+                <p>ALL FRUITS</p>
+                <p>FRESH CUTS</p>
+                <p>FRUIT COMBOS</p>
+                <p>GIFTS BY KIMAYE</p>
+                <p>GRAPE FAMILY BY KIMAYE</p>
+                <p>RETURN AND REPLACEMENT</p>
+                <p style={{ opacity: "0.6" }}>FRUITS X SUBSCRIPTION</p>
+                <p>COMMUNITY BUYING</p>
+              </div>
+            ) : null}
+            <tr>
+              <td>
+                <p>LEARN</p>
+              </td>
+              <td style={slideLearn ? { backgroundColor: "#98cb4c" } : null}>
+                <img
+                  onClick={() => setSlidingLearn(!slideLearn)}
+                  src="https://cdn-icons-png.flaticon.com/512/25/25623.png"
+                  alt="arrow"
+                />
+              </td>
+            </tr>
+            {slideLearn ? (
+              <div style={{ textAlign: "left" }}>
+                <p>OUR STORY</p>
+                <p>WHY KIMAYE</p>
+                <p>TRACEABILITY</p>
+                <p>BEYOND FRUITS</p>
+              </div>
+            ) : null}
+            <tr>
+              <td>
+                <p>GROW WITH KIMAYE</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>KIMAYE REWARDS</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>CONTACT US</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>LOGIN / REGISTER</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
       {/* dropdown shop */}
       <div
         onMouseLeave={() => setShop(false)}
@@ -338,6 +425,14 @@ export const Navbar = () => {
             <p onClick={() => setCart(false)}>CLOSE X</p>
           </div>
         </div>
+
+        <div className={styles.emptyWarn}>
+          <AiIcons.AiOutlineShoppingCart
+            style={{ fontSize: "60px", opacity: "0.15" }}
+          />
+          <p>No products in the cart</p>
+        </div>
+        <button className={styles.continueShopp}>CONTINUE SHOPPING</button>
       </div>
     </>
   );

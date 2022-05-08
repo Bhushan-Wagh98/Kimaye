@@ -407,7 +407,7 @@
   left: 0;
   z-index: 9997;
   width: 100%;
-  height: 100vw;
+  height: 100%;
   background-color: black;
   opacity: 0.6;
   transform: translateX(0);
@@ -837,4 +837,72 @@
   .stickedNav > img {
     margin-left: 10px;
   }
+}
+.shortScreenInput {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+}
+.shortScreenInput > input {
+  background-color: transparent;
+  border: none;
+  padding: 20px;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.shortScreenInput > input:focus {
+  outline: none;
+}
+.shortScreenInput > button {
+  background-color: transparent;
+  border: none;
+  opacity: 0.7;
+}
+.shortscreenHide > hr,
+.shortscreenMenu > hr {
+  border-top: 2px solid gray;
+  opacity: 0.6;
+}
+.slidingTable > table {
+  width: 100%;
+  padding: 0 20px;
+}
+.slidingTable > table > tr > td > img {
+  height: 20px;
+  padding: 0 20px;
+}
+.slidingTable > table > tr > td:first-child {
+  width: 90%;
+  text-align: left;
+}
+/* .slidingTable > table > tr > td {
+  border: 1px solid red;
+  height: 20px;
+} */
+
+.slidingTable > table > div {
+  margin-left: 15px;
+  font-size: 15px;
+}
+.emptyWarn {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  gap: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  opacity: 0.6;
+}
+.continueShopp {
+  width: 80%;
+  height: 40px;
+  border: none;
+  color: #4c4c4c;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: 0.25s ease-in-out;
+}
+.continueShopp:hover {
+  color: white;
+  background-color: #4c4c4c;
 }
